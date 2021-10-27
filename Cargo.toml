@@ -5,3 +5,4 @@ edition = "2018"
 
 [dependencies]
 binance = "0.17.1"
+dotenv = "0.15.0"
