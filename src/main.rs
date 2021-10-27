@@ -3,6 +3,9 @@ extern crate dotenv;
 use dotenv::dotenv;
 use std::env;
 
+use binance::account::*;
+use binance::api::*;
+
 #[derive(Debug)]
 pub struct Credentials {
     pub api_key: String,
@@ -18,4 +21,12 @@ fn main() {
     };
 
     println!("{:?}", creds);
+
+    let account: Account = Binance::new(Some(creds.api_key), Some(creds.secret_key));
+
+    match account.get_account() {
+        Ok(answer) => println!("{:?}", answer.balances),
+        Err(e) => println!("Error: {:?}", e),
+    }
+
 }
