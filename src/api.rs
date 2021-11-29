@@ -1,7 +1,7 @@
 pub mod binance {
+    use crate::credentials::*;
     use binance::account::*;
     use binance::api::*;
-    use crate::credentials::*;
 
     pub fn get_api() -> Account {
         let creds: Credentials = read_credentials();
